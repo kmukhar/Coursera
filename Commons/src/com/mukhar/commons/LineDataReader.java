@@ -8,7 +8,8 @@ import java.util.ArrayList;
  */
 public class LineDataReader {
   /**
-   * Read a data file and return the contents as a list of Strings.
+   * Read a data file and return the contents as a list of Strings. No error
+   * checking is performed.
    * 
    * @param f
    *          The data file to read
