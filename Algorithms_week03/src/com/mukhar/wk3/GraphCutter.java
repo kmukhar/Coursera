@@ -70,7 +70,7 @@ public class GraphCutter {
   private void findMinCut()
   {
     while (nodes.size() > 2) {
-      // randomly pick edge
+      // randomly pick edge and remove it from the list of edges
       Edge e = edges.remove(rand.nextInt(edges.size()));
 
       // combine nodes connected by edge
@@ -79,7 +79,9 @@ public class GraphCutter {
       Node n2 = nodes.remove(e.node2);
       assert n2 != null;
 
+      // Add all node IDs from n2 to n1
       n1.addAll(n2);
+      //only return n1 to the list of nodes
       nodes.put(n1.getId(), n1);
 
       // cleanup edges
@@ -90,7 +92,7 @@ public class GraphCutter {
   /**
    * For the given Edge e, remove any duplicate edges from the list of edges,
    * and modify any existing edges by replacing the value of node2 in the
-   * existing edge to have the value of node1.
+   * existing edge to have the value of node1 (which is the new supernode).
    */
   private void cleanupEdges(Edge e)
   {
