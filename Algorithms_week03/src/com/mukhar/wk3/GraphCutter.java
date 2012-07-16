@@ -45,7 +45,8 @@ public class GraphCutter {
   /**
    * Constructor. Reads the Adjacency List data from the data file.
    */
-  public GraphCutter(File f) {
+  public GraphCutter() {
+    File f = FilePicker.selectFile();
     DataReader dr = new DataReader();
     dr.readFile(f, nodes, edges);
   }
@@ -54,9 +55,8 @@ public class GraphCutter {
   {
     int trial = 0;
     int minCut = Integer.MAX_VALUE;
-    File f = FilePicker.selectFile();
     while (true) {
-      GraphCutter gc = new GraphCutter(f);
+      GraphCutter gc = new GraphCutter();
       gc.findMinCut();
       if (gc.edges.size() < minCut) {
         minCut = gc.edges.size();
