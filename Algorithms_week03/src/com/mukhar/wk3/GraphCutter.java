@@ -4,7 +4,10 @@ import java.io.*;
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.logging.Logger;
+
+import com.mukhar.commons.Edge;
 import com.mukhar.commons.FilePicker;
+import com.mukhar.commons.Node;
 
 /**
  * Implementation of Karger's Min Cut Algorithm. (See

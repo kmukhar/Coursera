@@ -1,4 +1,4 @@
-package com.mukhar.wk3;
+package com.mukhar.commons;
 
 import java.util.ArrayList;
 import java.util.Collections;
