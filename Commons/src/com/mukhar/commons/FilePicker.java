@@ -20,4 +20,16 @@ public class FilePicker {
     return fc.getSelectedFile();
   }
 
+  /**
+   * Display a JFileChooser for the user to select a file. No error checking is
+   * performed.
+   * 
+   * @return The file chosen by the user.
+   */
+  public static File selectFile(String dir)
+  {
+    JFileChooser fc = new JFileChooser(dir);
+    fc.showOpenDialog(null);
+    return fc.getSelectedFile();
+  }
 }

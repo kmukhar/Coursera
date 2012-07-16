@@ -1,21 +1,17 @@
 package com.mukhar.commons;
 
 public class Edge {
+  public int node1;
+  public int node2;
+
   /**
    * Constructor
    */
   public Edge(int id1, int id2) {
-    if (id1 < id2) {
-      node1 = id1;
-      node2 = id2;
-    } else {
-      node1 = id2;
-      node2 = id1;
-    }
+  	node1 = id1;
+  	node2 = id2;
+  	ensureNodeOrder();
   }
-
-  public int node1;
-  public int node2;
 
   @Override
   public int hashCode()
@@ -81,7 +77,7 @@ public class Edge {
    * Checks that node1 < node2 (comparing the node ids), and swaps the node ids
    * as necessary to ensure that node1 < node2.
    */
-  private void ensureNodeOrder()
+  protected void ensureNodeOrder()
   {
     if (node2 < node1) {
       int temp = node1;

@@ -36,7 +36,8 @@ public class DataReader {
   public void readFile(File f, HashMap<Integer, Node> nodes, List<Edge> edges)
   {
     LineDataReader ldr = new LineDataReader();
-    ArrayList<String> lines = ldr.readFile(f);
+    ldr.openFile(f);
+    ArrayList<String> lines = ldr.readFile(201);
 
     for (String line : lines) {
       if (line.startsWith("#"))
