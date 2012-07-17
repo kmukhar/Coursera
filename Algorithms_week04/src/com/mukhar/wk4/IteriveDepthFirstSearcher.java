@@ -1,7 +1,6 @@
 package com.mukhar.wk4;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Stack;

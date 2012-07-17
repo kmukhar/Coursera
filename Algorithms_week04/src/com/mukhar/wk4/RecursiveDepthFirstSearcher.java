@@ -1,7 +1,6 @@
 package com.mukhar.wk4;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -17,7 +16,6 @@ public class RecursiveDepthFirstSearcher {
 	private Hashtable<Integer, DirectedEdge> edges = new Hashtable<Integer, DirectedEdge>();
 	private HashMap<Integer, Node> explored = new HashMap<Integer, Node>();
 	private Logger logger;
-	private int depth=0;
 
 	public RecursiveDepthFirstSearcher() {
 		logger = Logger.getLogger("com.mukhar.wk4");
