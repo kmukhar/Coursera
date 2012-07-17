@@ -11,7 +11,7 @@ import java.util.Collections;
  */
 public class Node {
   ArrayList<Integer> nodes = new ArrayList<Integer>();
-	private int fValue;
+	private int fValue = -1;
 
   /**
    * Constructor
@@ -51,7 +51,7 @@ public class Node {
 		this.fValue = fValue;
   }
 
-	public String getFValue() {
-	  return Integer.toString(fValue);
+	public int getFValue() {
+	  return fValue;
   }
 }
