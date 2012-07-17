@@ -24,7 +24,7 @@ public class DataReader {
 		Logger logger = Logger.getLogger("com.mukhar.wk4");
 		LineDataReader ldr = new LineDataReader();
 		ldr.openFile(f);
-		ArrayList<String> lines = ldr.readFile(10000);
+		ArrayList<String> lines = ldr.readFile(32768);
 		
 		while (lines.size() > 0) {
 			for (String line : lines) {

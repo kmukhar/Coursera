@@ -1,13 +1,11 @@
 package com.mukhar.wk4;
 
 import java.io.File;
+import java.text.MessageFormat;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Stack;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Formatter;
-import java.util.logging.LogRecord;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 import com.mukhar.commons.DirectedEdge;
 import com.mukhar.commons.FilePicker;
@@ -17,8 +15,6 @@ import com.mukhar.wk4.DataReader;
 public class IteriveDepthFirstSearcher {
 	private Hashtable<Integer, Node> nodes = new Hashtable<Integer, Node>(1313377);
 	private Hashtable<Integer, DirectedEdge> edges = new Hashtable<Integer, DirectedEdge>(1313377);
-
-	private Stack<Node> unexplored = new Stack<Node>();
 
 	private Logger logger;
 	private int fValue;
@@ -35,6 +31,7 @@ public class IteriveDepthFirstSearcher {
 		});
 		logger.setUseParentHandlers(false);
 		logger.addHandler(myHandler);
+		logger.setLevel(Level.OFF);
 
 		File f = FilePicker.selectFile(".");
 		DataReader dr = new DataReader();
@@ -52,14 +49,16 @@ public class IteriveDepthFirstSearcher {
 				// if a new node has -1 has f value, it has not been explored at all
 				// fvalue of 0 indicates node is on stack
 				node.setFValue(0);
-				unexplored.push(node);
+				doSearch(node);
 			}
-			doSearch();
 		}
 	}
 
-	private void doSearch() {
-		Node node = null;
+	private void doSearch(Node node) {
+		Stack<Node> unexplored = new Stack<Node>();
+		unexplored.ensureCapacity(74715);
+		unexplored.push(node);
+
 		while (unexplored.size() > 0) {
 			int size = unexplored.size();
 			node = unexplored.peek();
@@ -87,9 +86,11 @@ public class IteriveDepthFirstSearcher {
 	}
 
 	private void complete() {
+		logger.setLevel(Level.INFO);
+		String msg ="Node id: {0,number,######}; fValue: {1,number,######}\n";
+		
 		for (Node n : nodes.values()) {
-			logger
-			    .info("Node id: " + n.getId() + "; fValue: " + n.getFValue() + "\n");
+			logger.info(MessageFormat.format(msg, n.getId(), n.getFValue()));
 		}
 	}
 
