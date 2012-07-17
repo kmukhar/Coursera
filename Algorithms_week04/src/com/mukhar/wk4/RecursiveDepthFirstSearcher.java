@@ -12,14 +12,14 @@ import com.mukhar.commons.FilePicker;
 import com.mukhar.commons.Node;
 import com.mukhar.wk4.DataReader;
 
-public class DepthFirstSearcher {
+public class RecursiveDepthFirstSearcher {
 	private Hashtable<Integer, Node> nodes = new Hashtable<Integer, Node>();
 	private Hashtable<Integer, DirectedEdge> edges = new Hashtable<Integer, DirectedEdge>();
 	private HashMap<Integer, Node> explored = new HashMap<Integer, Node>();
 	private Logger logger;
 	private int depth=0;
 
-	public DepthFirstSearcher() {
+	public RecursiveDepthFirstSearcher() {
 		logger = Logger.getLogger("com.mukhar.wk4");
 
 		ConsoleHandler myHandler = new ConsoleHandler();
@@ -33,7 +33,7 @@ public class DepthFirstSearcher {
 		logger.addHandler(myHandler);
 
 		File f = FilePicker
-		    .selectFile("C:/Users/kmukhar/workspace/Coursera/Algorithms_week04/src");
+		    .selectFile(".");
 		DataReader dr = new DataReader();
 		dr.readFile(f, nodes, edges);
 	}
@@ -64,7 +64,7 @@ public class DepthFirstSearcher {
 	}
 
 	public static void main(String[] args) {
-		DepthFirstSearcher dfs = new DepthFirstSearcher();
+		RecursiveDepthFirstSearcher dfs = new RecursiveDepthFirstSearcher();
 		dfs.search();
 		dfs.complete();
 	}
