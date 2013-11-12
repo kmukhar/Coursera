@@ -9,23 +9,25 @@ public class DirectedEdge {
 
 	public DirectedEdge(int id1) {
 		tailID = id1;
-  }
-	
+	}
+
 	public boolean add(int id) {
 		Integer val = new Integer(id);
 		return heads.add(val);
 	}
-	
+
 	public boolean remove(int id) {
 		Integer val = new Integer(id);
 		return heads.remove(val);
 	}
 
+	@SuppressWarnings("unchecked")
 	public ArrayList<Integer> getHeads() {
-	  return (ArrayList<Integer>) heads.clone();
-  }
+		ArrayList<Integer> clone = (ArrayList<Integer>) heads.clone();
+		return clone;
+	}
 
 	public int getNumHeads() {
 		return heads.size();
-  }
+	}
 }
